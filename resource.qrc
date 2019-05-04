@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/btn_icon">
+        <file>image/btn_icon.png</file>
+        <file>image/btn_1_icon.png</file>
+        <file>image/btn_2_icon.png</file>
+        <file>image/btn_3_icon.png</file>
+        <file>image/btn_4_icon.png</file>
+        <file>image/btn_5_icon.png</file>
+        <file>image/btn_6_icon.png</file>
+        <file>image/btn_7_icon.png</file>
+        <file>image/btn_8_icon.png</file>
+        <file>image/btn_9_icon.png</file>
+        <file>image/btn_10_icon.png</file>
+        <file>image/btn_11_icon.png</file>
+        <file>image/btn_12_icon.png</file>
+        <file>image/btn_13_icon.png</file>
+        <file>image/btn_14_icon.png</file>
+        <file>image/btn_15_icon.png</file>
+    </qresource>
+</RCC>
