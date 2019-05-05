@@ -11,6 +11,8 @@
 #include<QFont>
 #include<QIcon>
 #include<QRect>
+#include<QPixmap>
+#include<cmath>
 
 namespace Ui {
 class Fifteen;
@@ -29,20 +31,28 @@ private:
     QFont MyFont;
 
     QVector<QPushButton*> vec_btn;
-    QVector<QIcon> vec_icon;
     QVector<QString> vec_num;
-
+    QVector<QPixmap> cropped;
     QPair<int, int> legal_coord;
-    static const int COUNT_BTN = 15;
+    QPixmap original;
+
     int btn_width;
     int btn_height;
     int gridLayout_width;
     int gridLayout_height;
     int move_count;
+
+    int img_width;
+    int img_height;
+    int max_width;
+    int step;
+    int num_rows;
+
 private:
     void ResizeElement();
     void NumberOnBtn();
     void ImageOnBtn();
+    void CurrentImage();
 
 private slots:
     void Move();

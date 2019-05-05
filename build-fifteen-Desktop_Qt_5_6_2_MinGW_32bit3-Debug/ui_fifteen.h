@@ -296,7 +296,7 @@ public:
         btnSizeBox->setMinimumSize(QSize(50, 20));
         btnSizeBox->setMaximumSize(QSize(50, 20));
         btnSizeBox->setFont(font2);
-        btnSizeBox->setValue(70);
+        btnSizeBox->setValue(90);
 
         horizontalLayout->addWidget(btnSizeBox);
 
@@ -390,7 +390,10 @@ public:
         levelBox->clear();
         levelBox->insertItems(0, QStringList()
          << QApplication::translate("Fifteen", "Clasical", 0)
-         << QApplication::translate("Fifteen", "Image", 0)
+         << QApplication::translate("Fifteen", "Palm", 0)
+         << QApplication::translate("Fifteen", "Rome", 0)
+         << QApplication::translate("Fifteen", "Cat", 0)
+         << QApplication::translate("Fifteen", "Castle", 0)
         );
     } // retranslateUi
 

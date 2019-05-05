@@ -696,7 +696,7 @@ color: rgb(255, 255, 255);</string>
            </font>
           </property>
           <property name="value">
-           <number>70</number>
+           <number>90</number>
           </property>
          </widget>
         </item>
@@ -821,7 +821,22 @@ color: rgb(255, 255, 255);</string>
         </item>
         <item>
          <property name="text">
-          <string>Image</string>
+          <string>Palm</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Rome</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Cat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Castle</string>
          </property>
         </item>
        </widget>

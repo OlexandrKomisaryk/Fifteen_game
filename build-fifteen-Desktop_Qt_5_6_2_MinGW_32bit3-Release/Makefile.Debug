@@ -96,21 +96,11 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_resource.cpp
 debug/qrc_resource.cpp: ../fifteen/resource.qrc \
 		../fifteen/image/btn_icon.png \
-		../fifteen/image/btn_8_icon.png \
-		../fifteen/image/btn_9_icon.png \
-		../fifteen/image/btn_10_icon.png \
-		../fifteen/image/btn_11_icon.png \
-		../fifteen/image/btn_12_icon.png \
-		../fifteen/image/btn_13_icon.png \
-		../fifteen/image/btn_14_icon.png \
-		../fifteen/image/btn_15_icon.png \
-		../fifteen/image/btn_1_icon.png \
-		../fifteen/image/btn_2_icon.png \
-		../fifteen/image/btn_3_icon.png \
-		../fifteen/image/btn_4_icon.png \
-		../fifteen/image/btn_5_icon.png \
-		../fifteen/image/btn_6_icon.png \
-		../fifteen/image/btn_7_icon.png
+		../fifteen/image/icon_fifteen.ico \
+		../fifteen/image/rome \
+		../fifteen/image/icon_fifteen.png \
+		../fifteen/image/castle \
+		../fifteen/image/palm
 	E:\Program\Qt\5.6\mingw49_32\bin\rcc.exe -name resource ..\fifteen\resource.qrc -o debug\qrc_resource.cpp
 
 compiler_moc_header_make_all: debug/moc_fifteen.cpp
@@ -230,9 +220,9 @@ debug/moc_fifteen.cpp: ../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QMainWi
 		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
 		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h \
 		../../Program/Qt/5.6/mingw49_32/include/QtGui/QFont \
-		../../Program/Qt/5.6/mingw49_32/include/QtGui/QPixmap \
 		../../Program/Qt/5.6/mingw49_32/include/QtGui/QIcon \
 		../../Program/Qt/5.6/mingw49_32/include/QtCore/QRect \
+		../../Program/Qt/5.6/mingw49_32/include/QtGui/QPixmap \
 		../fifteen/fifteen.h
 	E:\Program\Qt\5.6\mingw49_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IE:/Program/Qt/5.6/mingw49_32/mkspecs/win32-g++ -IE:/C++/fifteen -IE:/Program/Qt/5.6/mingw49_32/include -IE:/Program/Qt/5.6/mingw49_32/include/QtWidgets -IE:/Program/Qt/5.6/mingw49_32/include/QtGui -IE:/Program/Qt/5.6/mingw49_32/include/QtANGLE -IE:/Program/Qt/5.6/mingw49_32/include/QtCore -I. ..\fifteen\fifteen.h -o debug\moc_fifteen.cpp
 
@@ -371,9 +361,9 @@ debug/main.o: ../fifteen/main.cpp ../fifteen/fifteen.h \
 		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
 		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h \
 		../../Program/Qt/5.6/mingw49_32/include/QtGui/QFont \
-		../../Program/Qt/5.6/mingw49_32/include/QtGui/QPixmap \
 		../../Program/Qt/5.6/mingw49_32/include/QtGui/QIcon \
 		../../Program/Qt/5.6/mingw49_32/include/QtCore/QRect \
+		../../Program/Qt/5.6/mingw49_32/include/QtGui/QPixmap \
 		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QApplication \
 		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qapplication.h \
 		../../Program/Qt/5.6/mingw49_32/include/QtCore/qcoreapplication.h \
@@ -498,55 +488,10 @@ debug/fifteen.o: ../fifteen/fifteen.cpp ../fifteen/fifteen.h \
 		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
 		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h \
 		../../Program/Qt/5.6/mingw49_32/include/QtGui/QFont \
-		../../Program/Qt/5.6/mingw49_32/include/QtGui/QPixmap \
 		../../Program/Qt/5.6/mingw49_32/include/QtGui/QIcon \
 		../../Program/Qt/5.6/mingw49_32/include/QtCore/QRect \
-		ui_fifteen.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtCore/QVariant \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QAction \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qaction.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qactiongroup.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QApplication \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qapplication.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtCore/qcoreapplication.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtCore/qeventloop.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qdesktopwidget.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtGui/qguiapplication.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtGui/qinputmethod.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QButtonGroup \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qbuttongroup.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QGridLayout \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qgridlayout.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qlayout.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qlayoutitem.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qboxlayout.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QGroupBox \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qgroupbox.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qframe.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QHBoxLayout \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QHeaderView \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qheaderview.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qabstractitemview.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qabstractscrollarea.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtCore/qabstractitemmodel.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtCore/qitemselectionmodel.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qstyleoption.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qabstractspinbox.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtGui/qvalidator.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtCore/qregularexpression.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qslider.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qabstractslider.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qstyle.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qtabbar.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qrubberband.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QLabel \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qlabel.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QSpacerItem \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QSpinBox \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qspinbox.h \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QVBoxLayout \
-		../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QWidget
+		../../Program/Qt/5.6/mingw49_32/include/QtGui/QPixmap \
+		ui_fifteen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\fifteen.o ..\fifteen\fifteen.cpp
 
 debug/qrc_resource.o: debug/qrc_resource.cpp 

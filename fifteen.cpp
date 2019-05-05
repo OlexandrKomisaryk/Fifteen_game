@@ -6,41 +6,29 @@ Fifteen::Fifteen(QWidget *parent) :
     ui(new Ui::Fifteen)
 {
     ui->setupUi(this);
+
     MyFont.setPointSize(20);
     move_count = 0;
+    btn_width = 90;
+    btn_height = 90;
 
     ui->btnSizeBox->setMinimum(50);
     ui->btnSizeBox->setMaximum(170);
     ui->layoutSizeBox->setMinimum(0);
     ui->layoutSizeBox->setMaximum(15);
+    ui->gridLayout->setVerticalSpacing(5);
+    ui->gridLayout->setHorizontalSpacing(5);
+
+    original = QPixmap(":/btn_icon/image/rome.png");
+
+    img_width = original.width();
+    img_height = original.height();
 
     vec_btn = {ui->btn1, ui->btn2, ui->btn3, ui->btn4, ui->btn5,
                ui->btn6, ui->btn7, ui->btn8, ui->btn9, ui->btn10,
                ui->btn11, ui->btn12, ui->btn13, ui->btn14, ui->btn15};
     vec_num = {"1", "2", "3", "4", "5", "6", "7", "8",
                "9", "10", "11", "12", "13", "14", "15"};
-
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_1_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_2_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_3_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_4_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_5_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_6_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_7_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_8_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_9_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_10_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_11_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_12_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_13_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_14_icon.png"));
-    vec_icon.push_back(QIcon(":/btn_icon/image/btn_15_icon.png"));
-
-    btn_width = 70;
-    btn_height = 70;
-
-    ui->gridLayout->setVerticalSpacing(5);
-    ui->gridLayout->setHorizontalSpacing(5);
 
     ResizeElement();
     foreach (QPushButton * btn, vec_btn)
@@ -54,20 +42,46 @@ Fifteen::~Fifteen()
     delete ui;
 }
 
+void Fifteen::CurrentImage()
+{
+    num_rows = sqrt((vec_btn.size())+1);
+    img_width = original.width();
+    img_height = original.height();
+    if(img_width < img_height)
+    {
+        step = img_width/num_rows;
+    }
+    else
+    {
+        step = img_height/num_rows;
+    }
+    max_width = step * (num_rows - 1);
+
+    for(int i = 0; i<=max_width; i+=step)
+    {
+        for(int j = 0; j<=max_width; j+=step)
+        {
+            cropped.push_back(original.copy(QRect(j, i, step, step)));
+        }
+    }
+}
+
 void Fifteen::ImageOnBtn()
 {
-    for(int i = 0; i<COUNT_BTN; i++)
+    CurrentImage();
+    for(int k = 0; k < vec_btn.size(); k++)
     {
-        vec_btn[i]->setText("");
-        vec_btn[i]->setIcon(vec_icon[i]);
-        vec_btn[i]->setIconSize(QSize(btn_width, btn_height));
+        vec_btn[k]->setText("");
+        vec_btn[k]->setFixedSize(QSize(btn_width, btn_height));
+        vec_btn[k]->setIcon(cropped[k]);
+        vec_btn[k]->setIconSize(QSize(btn_width, btn_height));
     }
 }
 
 void Fifteen::NumberOnBtn()
 {
     MyFont.setPixelSize(btn_width/3);
-    for(int i = 0; i<COUNT_BTN; i++)
+    for(int i = 0; i < vec_btn.size(); i++)
     {
         vec_btn[i]->setIconSize(QSize(0, 0));
 
@@ -131,9 +145,9 @@ void Fifteen::on_btn_shufle_clicked()
     int rand_num;
 
     srand(time(NULL));
-    for(int i = 0; i<COUNT_BTN; i++)
+    for(int i = 0; i < vec_btn.size(); i++)
     {
-        rand_num = rand()%COUNT_BTN;
+        rand_num = rand()%vec_btn.size();
 
         tempXFirst = vec_btn[i]->x();
         tempYFirst = vec_btn[i]->y();
@@ -143,7 +157,7 @@ void Fifteen::on_btn_shufle_clicked()
         vec_btn[i]->setGeometry(tempXSecond, tempYSecond, btn_width, btn_height);
         vec_btn[rand_num]->setGeometry(tempXFirst, tempYFirst, btn_width, btn_height);
     }
-    for(int i = 0; i<COUNT_BTN; i++)
+    for(int i = 0; i < vec_btn.size(); i++)
     {
         if((vec_btn[i]->x() == ((btn_width + ui->gridLayout->verticalSpacing())*3 + ui->gridLayout->margin()))
                 && (vec_btn[i]->y() == ((btn_height + ui->gridLayout->horizontalSpacing())*3 + ui->gridLayout->margin())))
@@ -170,12 +184,29 @@ void Fifteen::on_layoutSizeBox_valueChanged(int size)
 
 void Fifteen::on_levelBox_currentTextChanged(const QString &arg1)
 {
-    if(arg1 == "Clasical")
+    cropped.clear();
+    if(arg1 == "Palm")
+    {
+        original = QPixmap(":/btn_icon/image/palm.png");
+        ImageOnBtn();
+    }
+    else if(arg1 == "Cat")
+    {
+       original = QPixmap(":/btn_icon/image/btn_icon.png");
+       ImageOnBtn();
+    }
+    else if(arg1 == "Rome")
+    {
+        original = QPixmap(":/btn_icon/image/rome.png");
+        ImageOnBtn();
+    }
+    else if(arg1 == "Castle")
+    {
+        original = QPixmap(":/btn_icon/image/castle.png");
+        ImageOnBtn();
+    }
+    else if(arg1 == "Clasical")
     {
         NumberOnBtn();
-    }
-    else
-    {
-        ImageOnBtn();
     }
 }
