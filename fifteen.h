@@ -53,6 +53,8 @@ private:
     void NumberOnBtn();
     void ImageOnBtn();
     void CurrentImage();
+    void SortVecBtn();
+    void ShuffleVecBtn();
 
 private slots:
     void Move();
@@ -61,6 +63,7 @@ private slots:
     void on_layoutSizeBox_valueChanged(int size);
 
     void on_levelBox_currentTextChanged(const QString &arg1);
+    void on_btnSort_clicked();
 };
 
 #endif // FIFTEEN_H

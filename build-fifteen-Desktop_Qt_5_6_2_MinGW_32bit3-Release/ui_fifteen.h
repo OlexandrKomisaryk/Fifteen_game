@@ -20,6 +20,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
@@ -64,6 +65,8 @@ public:
     QLabel *count_move;
     QLabel *count;
     QComboBox *levelBox;
+    QPushButton *btnSort;
+    QMenuBar *menuBar;
 
     void setupUi(QMainWindow *Fifteen)
     {
@@ -253,12 +256,12 @@ public:
 
         controlBox = new QGroupBox(centralWidget);
         controlBox->setObjectName(QStringLiteral("controlBox"));
-        controlBox->setGeometry(QRect(320, 20, 160, 200));
+        controlBox->setGeometry(QRect(320, 20, 160, 260));
         controlBox->setMinimumSize(QSize(160, 140));
-        controlBox->setMaximumSize(QSize(160, 200));
+        controlBox->setMaximumSize(QSize(160, 260));
         layoutWidget1 = new QWidget(controlBox);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(10, 11, 142, 184));
+        layoutWidget1->setGeometry(QRect(10, 11, 150, 184));
         gridLayout_2 = new QGridLayout(layoutWidget1);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -271,7 +274,7 @@ public:
         QFont font1;
         font1.setPointSize(16);
         btn_shufle->setFont(font1);
-        btn_shufle->setStyleSheet(QLatin1String("background-color: rgb(0, 100, 0);\n"
+        btn_shufle->setStyleSheet(QLatin1String("background-color: rgb(170, 0, 0);\n"
 "color: rgb(255, 255, 255);"));
 
         gridLayout_2->addWidget(btn_shufle, 0, 0, 1, 1);
@@ -341,8 +344,8 @@ public:
 
         count = new QLabel(layoutWidget1);
         count->setObjectName(QStringLiteral("count"));
-        count->setMinimumSize(QSize(25, 15));
-        count->setMaximumSize(QSize(25, 16777215));
+        count->setMinimumSize(QSize(40, 15));
+        count->setMaximumSize(QSize(40, 16777215));
         count->setFont(font2);
 
         horizontalLayout_3->addWidget(count);
@@ -356,7 +359,18 @@ public:
 
         gridLayout_2->addWidget(levelBox, 6, 0, 1, 1);
 
+        btnSort = new QPushButton(controlBox);
+        btnSort->setObjectName(QStringLiteral("btnSort"));
+        btnSort->setGeometry(QRect(10, 210, 140, 40));
+        btnSort->setMinimumSize(QSize(140, 40));
+        btnSort->setFont(font1);
+        btnSort->setStyleSheet(QLatin1String("background-color: rgb(0, 100, 0);\n"
+"color: rgb(255, 255, 255);"));
         Fifteen->setCentralWidget(centralWidget);
+        menuBar = new QMenuBar(Fifteen);
+        menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 496, 21));
+        Fifteen->setMenuBar(menuBar);
 
         retranslateUi(Fifteen);
 
@@ -395,6 +409,7 @@ public:
          << QApplication::translate("Fifteen", "Cat", 0)
          << QApplication::translate("Fifteen", "Castle", 0)
         );
+        btnSort->setText(QApplication::translate("Fifteen", "Sort", 0));
     } // retranslateUi
 
 };

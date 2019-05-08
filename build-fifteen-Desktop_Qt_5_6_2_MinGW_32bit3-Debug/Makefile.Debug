@@ -96,11 +96,14 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_resource.cpp
 debug/qrc_resource.cpp: ../fifteen/resource.qrc \
 		../fifteen/image/btn_icon.png \
+		../fifteen/image/palm.png \
 		../fifteen/image/icon_fifteen.ico \
 		../fifteen/image/rome \
 		../fifteen/image/icon_fifteen.png \
 		../fifteen/image/castle \
-		../fifteen/image/palm
+		../fifteen/image/castle.png \
+		../fifteen/image/palm \
+		../fifteen/image/rome.png
 	E:\Program\Qt\5.6\mingw49_32\bin\rcc.exe -name resource ..\fifteen\resource.qrc -o debug\qrc_resource.cpp
 
 compiler_moc_header_make_all: debug/moc_fifteen.cpp

@@ -3,11 +3,11 @@
         <file>image/btn_icon.png</file>
         <file>image/icon_fifteen.ico</file>
         <file>image/icon_fifteen.png</file>
-        <file>image/castle.png</file>
         <file>image/palm.png</file>
         <file>image/rome.png</file>
         <file>image/castle</file>
         <file>image/palm</file>
         <file>image/rome</file>
+        <file>image/castle.png</file>
     </qresource>
 </RCC>
